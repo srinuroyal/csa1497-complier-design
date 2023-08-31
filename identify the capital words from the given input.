@@ -1,0 +1,35 @@
+%{
+#include<stdio.h>
+%}
+
+%%
+[A-Z]+[ \t\n] {printf("%s is a capital letter", yytext);}
+. ;
+%%
+int main()
+{
+printf("\n Enter the input string:");	
+yylex();
+}
+
+int yywrap()
+{
+return 1;
+}
+3)	Write a LEX Program to check the email address is valid or not.
+%{
+#include<stdio.h>
+%}
+%%
+[a-zA-Z0-9_]+(@[a-z]+)(.[a-z]+) {printf("%s is a valid email", yytext);}
+.* {printf("It is not a valid email");}
+%%
+int main()
+{
+printf("\n Enter the email:");	
+yylex();
+}
+int yywrap()
+{
+return 1;
+}
